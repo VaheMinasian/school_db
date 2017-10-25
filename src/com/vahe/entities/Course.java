@@ -46,7 +46,7 @@ public class Course {
 	
 	/**
 	 * sets the Subject_Teacher list to the given Course object.
-	 * @param sub_t the Subject_Teacher list to be assigned to given Course object.
+	 * @param sub_tch the Subject_Teacher list to be assigned to given Course object.
 	 * @author vmjc
 	 */
 	public void setSub_tch(List<Sub_Tch_Crs> sub_tch) {

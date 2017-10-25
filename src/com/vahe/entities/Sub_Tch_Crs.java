@@ -41,7 +41,7 @@ public class Sub_Tch_Crs {
 
 	/**
 	 * sets the id for the Sub_Tch_Crs object
-	 * @param st_id id to be set for the Sub_Tch_Crs object
+	 * @param stc_id id to be set for the Sub_Tch_Crs object
 	 * @author vmjc
 	 */
 	public void setStc_id(int stc_id) {

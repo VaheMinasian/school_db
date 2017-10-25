@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.vahe.util.StackInterface;
+
 /**
  * creates Teacher objects with the properties represented by it's private variables.
  * represents teacher entity in school_db relational database. Mapped by Hibernate.
@@ -60,9 +62,9 @@ public class Teacher {
 	}
 	
 	/**
-	 * 
+	 * method sets id for given Teacher object.
+	 * @param teacherId id to be assigned to Teacher object.
 	 * @author vmjc
-	 * @param teacherId
 	 */
 	public void setTeacherId(int teacherId) {
 		this.teacherId = teacherId;

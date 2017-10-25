@@ -62,7 +62,7 @@ public class Subject {
 
 	/**
 	 * sets the Mark list for the given Subject object.
-	 * @param mark the Mark list to be assigned to given Subject object.
+	 * @param marks the Mark list to be assigned to given Subject object.
 	 * @author vmjc
 	 */
 	public void setMark(List<Mark> marks) {

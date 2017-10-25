@@ -5,7 +5,7 @@ package com.vahe.util;
  * @author vmjc
  *
  */
-public class Stack<T> {
+public class Stack<T> implements StackInterface<T>{
 
 	private StackElement<T> top;
 	private int size;
@@ -21,7 +21,7 @@ public class Stack<T> {
 	
 	/**
 	 * method adds an item to the stack.
-	 * @param s the string to be added to the stack.
+	 * @param newValue the string to be added to the stack.
 	 * @author vmjc
 	 */
 	public void push(T newValue) {
@@ -31,8 +31,8 @@ public class Stack<T> {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * method gets out the top element from the stack
+	 * @return returns the top value if available, otherwise null.
 	 * @author vmjc
 	 */
 	public T pop() {
@@ -46,8 +46,8 @@ public class Stack<T> {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * method peeks (gets without removing) the top value
+	 * @return returns the top value in stack.
 	 * @author vmjc
 	 */
 	public T peek() {
@@ -59,12 +59,17 @@ public class Stack<T> {
 	
 	/**
 	 * method checks if stack is empty
-	 * @return returns true if stack is empty, otherwise false.
 	 * @author vmjc
 	 */
 	public void empty() {
 		size =0;
 		top = null;
+	}
+
+	@Override
+	public void push() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
