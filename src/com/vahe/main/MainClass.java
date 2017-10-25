@@ -1,10 +1,6 @@
 package com.vahe.main;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
-import com.vahe.entities.Teacher;
+import java.util.PriorityQueue;
 
 /**
  * The main class for the school_db application includes the main method.
@@ -23,7 +19,6 @@ public class MainClass {
 
 		Init init = new Init();
 		init.initialize();
-		
 	}
 
 }

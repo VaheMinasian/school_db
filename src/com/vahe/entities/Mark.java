@@ -2,6 +2,7 @@ package com.vahe.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class Mark {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int mark_id;
-	private int mark;
+	private int mark=-1;
 	private Date date;
 	
 	@ManyToOne @JoinColumn(name="student_id")

@@ -1,13 +1,13 @@
 package com.vahe.entities;
 
-import java.util.List;
+import java.util.List; 
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 /**
@@ -20,12 +20,14 @@ public class Teacher {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int teacherId;
+	@Column(nullable = false)
 	private String fName;
+	@Column(nullable = false)
 	private String lName;
 	
-	@OneToMany(targetEntity=Subject_Teacher.class, mappedBy="teacher", cascade=CascadeType.ALL) 
+	@OneToMany(targetEntity=Sub_Tch_Crs.class, mappedBy="teacher", cascade=CascadeType.ALL) 
 	//@JoinColumn(name="teacher_id")
-	private List<Subject_Teacher> sub_tch;
+	private List<Sub_Tch_Crs> sub_tch;
 	
 
 	//GETTERS AND SETTERS
@@ -35,7 +37,7 @@ public class Teacher {
 	 * @return returns the subject_teacher list.
 	 * @author vmjc
 	 */
-	public List<Subject_Teacher> getSub_tch() {
+	public List<Sub_Tch_Crs> getSub_tch() {
 		return sub_tch;
 	}
 
@@ -44,7 +46,7 @@ public class Teacher {
 	 * @param sub_tch the subject_teacher list to be associated to the given Teacher object.
 	 * @author vmjc
 	 */
-	public void setSub_tch(List<Subject_Teacher> sub_tch) {
+	public void setSub_tch(List<Sub_Tch_Crs> sub_tch) {
 		this.sub_tch = sub_tch;
 	}
 

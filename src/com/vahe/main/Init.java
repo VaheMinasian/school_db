@@ -1,16 +1,19 @@
 package com.vahe.main;
 
-import java.util.Date;
+
+import java.util.List;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.vahe.entities.Course;
 import com.vahe.entities.Mark;
 import com.vahe.entities.Student;
 import com.vahe.entities.Subject;
-import com.vahe.entities.Subject_Teacher;
+import com.vahe.entities.Sub_Tch_Crs;
 import com.vahe.entities.Teacher;
 
 /**
@@ -124,8 +127,8 @@ public class Init {
 		student7.setCourse(course2);
 		
 		Student student8 = new Student();
-		student8.setF_name("Vladimir");
-		student8.setL_name("Popov");
+		student8.setF_name("Viveka");
+		student8.setL_name("Walin");
 		student8.setCourse(course1);
 		
 		Student student9 = new Student();
@@ -141,190 +144,186 @@ public class Init {
 		//Mark objects
 		
 		Mark m1 = new Mark();
-		m1.setStudent(student7);
-		m1.setMark(9);//
+		m1.setStudent(student3);
+		m1.setSubject(sbj3);
+		m1.setMark(8);//
 		m1.setDate();
-		m1.setSubject(sbj6);
 		
 		Mark m2 = new Mark();
 		m2.setStudent(student3);
-		m2.setMark(9);//
-		m2.setDate();
 		m2.setSubject(sbj4);
+		m2.setMark(8);
+		m2.setDate();
 		
 		Mark m3 = new Mark();
-		m3.setStudent(student7);
+		m3.setStudent(student3);
+		m3.setSubject(sbj5);
 		m3.setMark(6);
 		m3.setDate();
-		m3.setSubject(sbj7);
 		
 		Mark m4 = new Mark();
-		m4.setStudent(student3);
-		m4.setMark(9);//
-		m4.setDate();
+		m4.setStudent(student7);
 		m4.setSubject(sbj3);
+		m4.setMark(9);
+		m4.setDate();
 		
 		Mark m5 = new Mark();
-		m5.setStudent(student4);
-		m5.setMark(6);
-		m5.setDate();
+		m5.setStudent(student7);
 		m5.setSubject(sbj5);
+		//m5.setMark(10);
+		//m5.setDate();
 		
 		Mark m6 = new Mark();
-		m6.setStudent(student8);
+		m6.setStudent(student7);
+		m6.setSubject(sbj4);
 		m6.setMark(7);
 		m6.setDate();
-		m6.setSubject(sbj3);
 		
 		Mark m7 = new Mark();
-		m7.setStudent(student4);
+		m7.setStudent(student10);
+		m7.setSubject(sbj4);
 		m7.setMark(9);
 		m7.setDate();
-		m7.setSubject(sbj4);
 		
 		Mark m8 = new Mark();
-		m8.setStudent(student2);
+		m8.setStudent(student10);
+		m8.setSubject(sbj5);
 		m8.setMark(7);
 		m8.setDate();
-		m8.setSubject(sbj5);
 		
 		Mark m9 = new Mark();
-		m9.setStudent(student1);
-		m9.setMark(9);
+		m9.setStudent(student10);
+		m9.setSubject(sbj3);
+		m9.setMark(7);
 		m9.setDate();
-		m9.setSubject(sbj1);
 		
 		Mark m10 = new Mark();
-		m10.setStudent(student3);
+		m10.setStudent(student1);
+		m10.setSubject(sbj1);
 		m10.setMark(9);
 		m10.setDate();
-		m10.setSubject(sbj5);
 		
 		Mark m11 = new Mark();
-		m11.setStudent(student8);
+		m11.setStudent(student1);
+		m11.setSubject(sbj2);
 		m11.setMark(8);
 		m11.setDate();
-		m11.setSubject(sbj4);
 		
 		Mark m12 = new Mark();
-		m12.setStudent(student9);
-		m12.setMark(9);
-		m12.setDate();
-		m12.setSubject(sbj7);
+		m12.setStudent(student2);
+		m12.setSubject(sbj1);
+		//m12.setMark(9);
+		//m12.setDate();
 		
 		Mark m13 = new Mark();
-		m13.setStudent(student6);
+		m13.setStudent(student2);
+		m13.setSubject(sbj2);
 		m13.setMark(7);
 		m13.setDate();
-		m13.setSubject(sbj2);
 		
 		Mark m14 = new Mark();
-		m14.setStudent(student5);
+		m14.setStudent(student4);
+		m14.setSubject(sbj1);
 		m14.setMark(8);
 		m14.setDate();
-		m14.setSubject(sbj1);
 		
 		Mark m15 = new Mark();
-		m15.setStudent(student5);
-		m15.setMark(9);//
-		m15.setDate();
+		m15.setStudent(student4);
 		m15.setSubject(sbj2);
+		//m15.setMark(9);
+		//m15.setDate();
 		
 		Mark m16 = new Mark();
-		m16.setStudent(student9);
+		m16.setStudent(student5);
+		m16.setSubject(sbj1);
 		m16.setMark(9);
 		m16.setDate();
-		m16.setSubject(sbj6);
 		
 		Mark m17 = new Mark();
-		m17.setStudent(student8);
+		m17.setStudent(student5);
+		m17.setSubject(sbj2);
 		m17.setMark(8);
 		m17.setDate();
-		m17.setSubject(sbj5);
 		
 		Mark m18 = new Mark();
-		m18.setStudent(student1);
+		m18.setStudent(student8);
+		m18.setSubject(sbj2);
 		m18.setMark(8);
 		m18.setDate();
-		m18.setSubject(sbj2);
 		
 		Mark m19 = new Mark();
-		m19.setStudent(student10);
-		m19.setMark(8);
-		m19.setDate();
-		m19.setSubject(sbj7);
+		m19.setStudent(student8);
+		m19.setSubject(sbj1);
+		//m19.setMark(8);
+		//m19.setDate();
 		
 		Mark m20 = new Mark();
 		m20.setStudent(student6);
+		m20.setSubject(sbj6);
 		m20.setMark(7);
 		m20.setDate();
-		m20.setSubject(sbj1);
 		
 		Mark m21 = new Mark();
-		m21.setStudent(student10);
+		m21.setStudent(student6);
+		m21.setSubject(sbj7);
 		m21.setMark(8);
 		m21.setDate();
-		m21.setSubject(sbj6);
 		
 		Mark m22 = new Mark();
-		m22.setStudent(student2);
-		m22.setMark(9);//
-		m22.setDate();
-		m22.setSubject(sbj3);
+		m22.setStudent(student9);
+		m22.setSubject(sbj6);
+		//m22.setMark(9);
+		//m22.setDate();
 		
 		Mark m23 = new Mark();
-		m23.setStudent(student4);
+		m23.setStudent(student9);
+		m23.setSubject(sbj7);
 		m23.setMark(10);
 		m23.setDate();
-		m23.setSubject(sbj3);
-		
-		Mark m24 = new Mark();
-		m24.setStudent(student2);
-		m24.setMark(8);
-		m24.setDate();
-		m24.setSubject(sbj4);
 		
 		///////////////////
 		
 		// subject_teacher objects
 		
-		Subject_Teacher st1 = new Subject_Teacher();
-		st1.setCourse(course1);
-		st1.setSubject(sbj3);
-		st1.setTeacher(teacher2);
+		Sub_Tch_Crs stc1 = new Sub_Tch_Crs();
+		stc1.setCourse(course1);
+		stc1.setSubject(sbj3);
+		stc1.setTeacher(teacher2);
 		
-		Subject_Teacher st2 = new Subject_Teacher();
-		st2.setCourse(course1);
-		st2.setSubject(sbj4);
-		st2.setTeacher(teacher2);
+		Sub_Tch_Crs stc2 = new Sub_Tch_Crs();
+		stc2.setCourse(course1);
+		stc2.setSubject(sbj4);
+		stc2.setTeacher(teacher2);
 		
-		Subject_Teacher st3 = new Subject_Teacher();
-		st3.setCourse(course1);
-		st3.setSubject(sbj5);
-		st3.setTeacher(teacher2);
+		Sub_Tch_Crs stc3 = new Sub_Tch_Crs();
+		stc3.setCourse(course1);
+		stc3.setSubject(sbj5);
+		stc3.setTeacher(teacher2);
 		
-		Subject_Teacher st4 = new Subject_Teacher();
-		st4.setCourse(course2);
-		st4.setSubject(sbj1);
-		st4.setTeacher(teacher1);
+		Sub_Tch_Crs stc4 = new Sub_Tch_Crs();
+		stc4.setCourse(course2);
+		stc4.setSubject(sbj1);
+		stc4.setTeacher(teacher1);
 		
-		Subject_Teacher st5 = new Subject_Teacher();
-		st5.setCourse(course2);
-		st5.setSubject(sbj2);
-		st5.setTeacher(teacher3);
+		Sub_Tch_Crs stc5 = new Sub_Tch_Crs();
+		stc5.setCourse(course2);
+		stc5.setSubject(sbj2);
+		stc5.setTeacher(teacher3);
 		
-		Subject_Teacher st6 = new Subject_Teacher();
-		st6.setCourse(course3);
-		st6.setSubject(sbj6);
-		st6.setTeacher(teacher4);
+		Sub_Tch_Crs stc6 = new Sub_Tch_Crs();
+		stc6.setCourse(course3);
+		stc6.setSubject(sbj6);
+		stc6.setTeacher(teacher4);
 		
-		Subject_Teacher st7 = new Subject_Teacher();
-		st7.setCourse(course3);
-		st7.setSubject(sbj7);
-		st7.setTeacher(teacher4);
+		Sub_Tch_Crs stc7 = new Sub_Tch_Crs();
+		stc7.setCourse(course3);
+		stc7.setSubject(sbj7);
+		stc7.setTeacher(teacher4);
 		
 		////////////////////
-		
+		//getting objects  Classname x = (Classname) session.get(Classname.class, 6);
+		//deleting session.delete(x)
+		//updating x.setUserName("updted user"); session.update(x);
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -336,28 +335,34 @@ public class Init {
 		session.save(sbj1); session.save(sbj2); session.save(sbj3); session.save(sbj4); session.save(sbj5);
 		session.save(sbj6); session.save(sbj7);
 		
-		session.save(student10);session.save(student9);session.save(student8);session.save(student7);
-		session.save(student6);session.save(student5);session.save(student5);session.save(student4);
-		session.save(student3);session.save(student2);session.save(student1);
+		session.save(student1);session.save(student2);session.save(student3);session.save(student4);
+		session.save(student5);session.save(student6);session.save(student7);session.save(student8);
+		session.save(student9);session.save(student10);
 
 		session.save(m1);session.save(m2);session.save(m3);session.save(m4);session.save(m5);session.save(m6);
 		session.save(m7);session.save(m8);session.save(m9);session.save(m10);session.save(m11);session.save(m12);
-		session.save(m13);session.save(m14);session.save(m15);session.save(m6);session.save(m17);session.save(m18);
-		session.save(m19);session.save(m20);session.save(m21);session.save(m22);session.save(m23);session.save(m24);
+		session.save(m13);session.save(m14);session.save(m15);session.save(m16);session.save(m17);session.save(m18);
+		session.save(m19);session.save(m20);session.save(m21);session.save(m22);session.save(m23);
 		
-		session.save(st1);session.save(st2);session.save(st3);session.save(st4);session.save(st5);
-		session.save(st6);session.save(st7);
+		session.save(stc1);session.save(stc2);session.save(stc3);session.save(stc4);session.save(stc5);
+		session.save(stc6);session.save(stc7);
+		
+		
+		System.out.println("\nperforming CRUD operations...");
+		
+		System.out.println("\nselecting an attribute...");
+		System.out.println("Course with id 2 is: " + session.get(Course.class, 2).getCourse_name());
+
+		System.out.println("\ndeleting a row/object...");
+		session.delete(student9);
+		
+		System.out.println("\nupdating an attribute...");
+		teacher2.setlName("Alonso");
+		session.update(teacher2);
 		
 		session.getTransaction().commit();
 		session.close();
 		
-		//teacher = null;
-		/*
-		session = sessionFactory.openSession();
-		session.beginTransaction();
-		teacher = (Teacher)session.get(Teacher.class, 1);
-		System.out.println("User name retrived is: " + teacher.getfName());
-*/
-		
+				
 	}
 }
