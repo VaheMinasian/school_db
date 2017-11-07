@@ -1,5 +1,6 @@
 package com.vahe.entities;
 
+import java.util.Date; 
 import java.util.List;  
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
 /**
  * creates Subject objects with the properties represented by it's variables.
  * represents subject entity in school_db relational database. Mapped by Hibernate.
@@ -19,27 +21,31 @@ import javax.persistence.OneToMany;
 public class Subject {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int subject_Id;
+	private int subjectId;
 	@Column(nullable = false)
-	private String subject_name;
+	private String subjectName;
 	
-	@OneToMany(targetEntity=Sub_Tch_Crs.class, mappedBy="subject", cascade=CascadeType.ALL) 
-	//@JoinColumn(name="subject_id")
-	private List<Sub_Tch_Crs> sub_tch_crs;
+	@OneToMany(targetEntity=SubTchCrs.class, mappedBy="subject", cascade=CascadeType.ALL) 
+	//@JoinColumn(name="subjectId")
+	private List<SubTchCrs> subTchCrs;
 	
 	@OneToMany(targetEntity=Mark.class, mappedBy="subject", cascade=CascadeType.ALL) 
-	//@JoinColumn(name="subject_id")
+	//@JoinColumn(name="subjectId")
 	private List<Mark> marks;
 	
+	public Subject() {}
+	public Subject(String name) {
+		this.setSubjectName(name);
+	}
 	
 	//GETTERS AND SETTERS
 	/**
-	 * gets a list of Subject_Teacher for the given Subject object.
-	 * @return returns the Subject_Teacher list associated with the given Subject object.
+	 * gets a list of subTchCrs for the given Subject object.
+	 * @return returns the subTchCrs list associated with the given Subject object.
 	 * @author vmjc
 	 */
-	public List<Sub_Tch_Crs> getSub_tch_crs() {
-		return sub_tch_crs;
+	public List<SubTchCrs> getSubTchCrs() {
+		return subTchCrs;
 	}
 
 	/**
@@ -47,8 +53,8 @@ public class Subject {
 	 * @param sub_tch_crs Subject_Teacher list to be assigned to given Subject object.
 	 * @author vmjc
 	 */
-	public void setSub_tch(List<Sub_Tch_Crs> sub_tch_crs) {
-		this.sub_tch_crs = sub_tch_crs;
+	public void setSub_tch(List<SubTchCrs> subTchCrs) {
+		this.subTchCrs = subTchCrs;
 	}
 
 	/**
@@ -75,7 +81,7 @@ public class Subject {
 	 * @return returns the Id of given Subject object.
 	 */
 	public int getSubjectId() {
-		return subject_Id;
+		return subjectId;
 	}
 	
 	/**
@@ -84,7 +90,7 @@ public class Subject {
 	 * @param subjectId the id number to be assigned to the given Subject object.
 	 */
 	public void setSubjectId(int subjectId) {
-		this.subject_Id = subjectId;
+		this.subjectId = subjectId;
 	}
 	
 	/**
@@ -92,16 +98,16 @@ public class Subject {
 	 * @author vmjc
 	 * @return returns the name of the given Subject object.
 	 */
-	public String getSubject_name() {
-		return subject_name;
+	public String getSubjectName() {
+		return subjectName;
 	}
 	
 	/**
 	 * sets the name of the Subject object called for
 	 * @author vmjc
-	 * @param subject_name the name to be assigned to the given Subject object.
+	 * @param subjectName the name to be assigned to the given Subject object.
 	 */
-	public void setSubject_name(String subject_name) {
-		this.subject_name = subject_name;
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
 	}
 }

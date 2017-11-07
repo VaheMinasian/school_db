@@ -39,7 +39,7 @@
        <mapping class="com.vahe.entities.Teacher"/>
        <mapping class="com.vahe.entities.Course"/>
        <mapping class="com.vahe.entities.Subject"/>
-       <mapping class="com.vahe.entities.Sub_Tch_Crs"/>
+       <mapping class="com.vahe.entities.SubTchCrs"/>
        <mapping class="com.vahe.entities.Student"/>
        <mapping class="com.vahe.entities.Mark"/>
         

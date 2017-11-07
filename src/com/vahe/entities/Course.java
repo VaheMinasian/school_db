@@ -1,5 +1,6 @@
 package com.vahe.entities;
 
+import java.util.Date; 
 import java.util.List; 
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 
 /**
  * creates Course objects by the properties represented by class variables.
@@ -20,37 +22,42 @@ import javax.persistence.OneToMany;
 public class Course {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int course_id;
+	private int courseId;
 	@Column(nullable = false)
-	private String course_name;
+	private String courseName;
 	
-	@OneToMany(targetEntity=Sub_Tch_Crs.class, mappedBy="course", cascade=CascadeType.ALL) 
-	//@JoinColumn(name="course_id")
-	private List<Sub_Tch_Crs> sub_tch;
+	@OneToMany(targetEntity=SubTchCrs.class, mappedBy="course", cascade=CascadeType.ALL) 
+	//@JoinColumn(name="courseId")
+	private List<SubTchCrs> subTchCrs;
 
 	@OneToMany(targetEntity=Student.class, mappedBy="course", cascade=CascadeType.ALL) 
-	//@JoinColumn(name="course_id")
+	//@JoinColumn(name="courseId")
 	private List<Student> students;
 	
+	
+	public Course() {}
+	public Course(String name) {
+		this.setCourseName(name);
+	}
 	
 	//GETTERS AND SETTERS
 
 	/**
-	 * gets the Subject_Teacher list associated with the given Course object.
-	 * @return returns the Subject_Teacher list associated with given Course.
+	 * gets the SubTchCrs list associated with the given Course object.
+	 * @return returns the SubTchCrs associated with given Course.
 	 * @author vmjc
 	 */
-	public List<Sub_Tch_Crs> getSub_tch() {
-		return sub_tch;
+	public List<SubTchCrs> getSubTchCrs() {
+		return subTchCrs;
 	}
 	
 	/**
-	 * sets the Subject_Teacher list to the given Course object.
-	 * @param sub_tch the Subject_Teacher list to be assigned to given Course object.
+	 * sets the SubTchCrs list to the given Course object.
+	 * @param subTchCrs the SubTchCrs list to be assigned to given Course object.
 	 * @author vmjc
 	 */
-	public void setSub_tch(List<Sub_Tch_Crs> sub_tch) {
-		this.sub_tch = sub_tch;
+	public void setSubTchCrs(List<SubTchCrs> subTchCrs) {
+		this.subTchCrs = subTchCrs;
 	}
 
 	/**
@@ -76,17 +83,17 @@ public class Course {
 	 * @return returns the course id of given Course.
 	 * @author vmjc
 	 */
-	public int getCourse_id() {
-		return course_id;
+	public int getCourseId() {
+		return courseId;
 	}
 	
 	/**
 	 * sets course id for given Course object.
-	 * @param course_id the id to be assigned to the Course object called.
+	 * @param courseId the id to be assigned to the Course object called.
 	 * @author vmjc
 	 */
-	public void setCourse_id(int course_id) {
-		this.course_id = course_id;
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
 	}
 	
 	/**
@@ -94,16 +101,16 @@ public class Course {
 	 * @return returns course name of given Course object.
 	 * @author vmjc
 	 */
-	public String getCourse_name() {
-		return course_name;
+	public String getCourseName() {
+		return courseName;
 	}
 	
 	/**
 	 * sets the course name for given Course object
-	 * @param course_name the name to be assigned to the Course object called.
+	 * @param courseName the name to be assigned to the Course object called.
 	 * @author vmjc
 	 */
-	public void setCourse_name(String course_name) {
-		this.course_name = course_name;
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 }

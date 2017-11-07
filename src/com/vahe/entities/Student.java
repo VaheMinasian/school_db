@@ -1,5 +1,6 @@
 package com.vahe.entities;
 
+import java.util.Date; 
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+
 /**
  * creates Student objects with the properties represented by it's variables.
  * represents Student entity in school_db relational database, mapped by Hibernate.
@@ -19,21 +21,28 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
-public class Student {
+public class Student{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int student_id;
+	private int studentId;
 	@Column(nullable = false)
-	private String f_name;
+	private String fName;
 	@Column(nullable = false)
-	private String l_name;
+	private String lName;
 
-	@ManyToOne @JoinColumn(name="course_id")
+	@ManyToOne @JoinColumn(name="courseId")
 	private Course course;
 	
 	@OneToMany(targetEntity=Mark.class, mappedBy="student", cascade=CascadeType.ALL) 
-	//@JoinColumn(name="student_id")
+	//@JoinColumn(name="studentId")
 	private List<Mark> marks;
+	
+	public Student() {}
+	public Student(String fName, String lName, Course course) {
+		this.setFName(fName);
+		this.setLName(lName);
+		this.setCourse(course);
+	}
 	
 	/**
 	 * get the marks for the Student object called for.
@@ -76,17 +85,17 @@ public class Student {
 	 * @return returns id for the given Student object.
 	 * @author vmjc
 	 */
-	public int getStudent_id() {
-		return student_id;
+	public int getStudentId() {
+		return studentId;
 	}
 	
 	/**
 	 * sets the student id for the given Student object.
-	 * @param student_id the id to be assigned to the given Student object.
+	 * @param studentId the id to be assigned to the given Student object.
 	 * @author vmjc
 	 */
-	public void setStudent_id(int student_id) {
-		this.student_id = student_id;
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 	
 	/**
@@ -94,17 +103,17 @@ public class Student {
 	 * @return returns first name for the given Student object.
 	 * @author vmjc
 	 */
-	public String getF_name() {
-		return f_name;
+	public String getFName() {
+		return fName;
 	}
 	
 	/**
 	 * sets the student first name for the given Student object.
-	 * @param f_name the first name to be assigned to the given Student object.
+	 * @param fName the first name to be assigned to the given Student object.
 	 * @author vmjc
 	 */
-	public void setF_name(String f_name) {
-		this.f_name = f_name;
+	public void setFName(String fName) {
+		this.fName = fName;
 	}
 	
 	/**
@@ -112,16 +121,16 @@ public class Student {
 	 * @return returns last nameid for the given Student object.
 	 * @author vmjc
 	 */
-	public String getL_name() {
-		return l_name;
+	public String getLName() {
+		return lName;
 	}
 
 	/**
 	 * sets the student last name for the given Student object.
-	 * @param l_name the last name to be assigned to the given Student object.
+	 * @param lName the last name to be assigned to the given Student object.
 	 * @author vmjc
 	 */
-	public void setL_name(String l_name) {
-		this.l_name = l_name;
+	public void setLName(String lName) {
+		this.lName = lName;
 	}
 }

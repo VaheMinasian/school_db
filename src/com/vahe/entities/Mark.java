@@ -1,6 +1,6 @@
 package com.vahe.entities;
 
-import java.util.Date;
+import java.util.Date; 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+
 
 /**
  * creates Mark objects with the properties represented by it's variables.
@@ -20,17 +22,23 @@ import javax.persistence.ManyToOne;
 public class Mark {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int mark_id;
+	private int markId;
 	private int mark=-1;
 	private Date date;
 	
-	@ManyToOne @JoinColumn(name="student_id")
+	@ManyToOne @JoinColumn(name="studentId")
 	private Student student;
 
-	@ManyToOne @JoinColumn(name="subject_id")
+	@ManyToOne @JoinColumn(name="subjectId")
 	private Subject subject;
 	
-	
+	public Mark() {}
+	public Mark(Student student, Subject subject, int mark) {
+		this.setStudent(student);
+		this.setSubject(subject);
+		this.setMark(mark);
+		this.setDate();
+	}
 	//GETTERS AND SETTERS
 	/**
 	 * gets the Subject object for given Mark object.
@@ -73,17 +81,17 @@ public class Mark {
 	 * @author vmjc
 	 * @return returns id for the given mark object/row.
 	 */
-	public int getMark_id() {
-		return mark_id;
+	public int getMarkId() {
+		return markId;
 	}
 	
 	/**
 	 * sets the id for the Mark object the method is called for.
 	 * @author vmjc
-	 * @param mark_id the id to be assigned to the given Mark object.
+	 * @param markId the id to be assigned to the given Mark object.
 	 */
-	public void setMark_id(int mark_id) {
-		this.mark_id = mark_id;
+	public void setMark_id(int markId) {
+		this.markId = markId;
 	}
 	
 	/**
